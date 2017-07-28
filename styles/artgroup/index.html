@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=1080">
+  <link href="css-min/style.min.css" rel="stylesheet">
+  <title>Art Group</title>
+</head>
+<body>
+  <!-- Всплывающее окно "Заказать расчёт перевозки" -->
+  <div id="request-calc" class="request-calc zoom-anim-dialog mfp-hide">
+    <form class="wpcf7-form">
+      <input type="text" name="address-otpr" placeholder="Адрес отправления" required>
+      <input type="text" name="address-poluch" placeholder="Адрес получения" required>
+      <input type="number" name="weight" placeholder="Вес груза*" required>
+      <input type="number" name="length" placeholder="Длина**" required>
+      <input type="number" name="width" placeholder="Ширина**" required>
+      <input type="number" name="height" placeholder="Высота**" required>
+      <input type="tel" name="tel" placeholder="Ваш телефон" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="submit" value="Отправить заявку">
+    </form>
+    <p>* — приблизительный вес груза. Данные необходимы для подбора ТС необходимого тоннажа.</p>
+    <br>
+    <p>** — приблизительные (общие) габариты груза. Данные необходимы для оптимального подбора ТС.</p>
+    <br>
+  </div>
+  <!-- /Всплывающее окно "Заказать расчёт перевозки" -->
+  <div class="layout">
+    <div class="header">
+      <div class="inner inner_header">
+        <div class="header__b-left">
+          <div class="logo">
+            <img src="img/logo.png" alt="ARTgroup">
+          </div><!-- /.logo -->
+          <div class="logo-legend">
+            <p>Бизнес для бизнеса</p>
+          </div><!-- /.logo-legend -->
+        </div><!-- /.header__b-left -->
+        <div class="header__b-right">
+          <a href="#request-calc" class="popup-with-move-anim order-calc"><span>Заказать расчёт перевозки</span></a>
+          <a href="tel:+73432478470" class="phone"><span>+7 (343)</span>&nbsp;247-84-70</a>
+        </div><!-- /.header__b-right -->
+        <div class="header-menu">
+          <div class="header-menu__bg-blur-wrap">
+            <div class="header-menu__bg-blur"></div>
+          </div>
+          <div class="header-menu__bg-overlay"></div>
+          <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="">О компании</a></li>
+            <li><a href="">Транспортные перевозки</a></li>
+            <li><a href="">Авиа перевозки</a></li>
+            <li><a href="">Калькулятор</a></li>
+            <li><a href="">Контакты</a></li>
+          </ul>
+        </div><!-- /.header-menu -->
+        <div class="header-slogan">
+          <p>Минимальный срок доставки — 1 сутки!</p>
+        </div><!-- /.header-slogan -->
+        <div class="request-order">
+          <div class="request-order__bg-overlay"></div>
+          <h2 class="request-order__caption">Оставьте заявку</h2>
+          <h3 class="request-order__desc">Наш специалист свяжется с Вами!</h3>
+          <form class="wpcf7-form">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="tel" placeholder="Ваш телефон" required>
+            <input type="submit" value="Отправить заявку">
+          </form>
+        </div><!-- /.request-order -->
+      </div><!-- /.inner inner_header -->
+    </div><!-- /.header -->
+    <div class="main">
+      <div class="inner">
+        <h1 class="main__caption">Технология и преимущества доставки</h1>
+        <div class="main-content">
+          <div class="main-content__b-left">
+            <div class="main-list-digit-left">
+              <div class="main-list-digit-left__item">1</div>
+              <div class="main-list-digit-left__item">2</div>
+              <div class="main-list-digit-left__item">3</div>
+              <div class="main-list-digit-left__item">4</div>
+              <div class="main-list-digit-left__item">5</div>
+            </div><!-- /.main-list-digit-left -->
+            <div class="main-list-article-left">
+              <div class="main-list-article-left__item">
+                <p>Ставите задачу, какой товар неоходимо Вам закупить или подобрать.</p>
+              </div>
+              <div class="main-list-article-left__item">
+                <p>Если требуется, подбираем Вам несколько выгодных контрагентов бесплатно.</p>
+              </div>
+              <div class="main-list-article-left__item">
+                <p>Производите оплату товара + обговоренный процент комиссии за наши услуги.</p>
+              </div>
+              <div class="main-list-article-left__item">
+                <p>Мы занимаемся всеми остальными операциями: налоговые, бухгалтерские, таможенные, отдел статистики, контроль логистики.</p>
+              </div>
+              <div class="main-list-article-left__item">
+                <p>Вы получаете товар в своем городе в целостности и сохранности и заказываете у нас ещё!</p>
+              </div>
+            </div><!-- /.main-list-article-left -->
+          </div><!-- /.main-content__b-left -->
+          <div class="main-content__b-right">
+            <div class="main-list-digit-right">
+              <div class="main-list-digit-right__item">1</div>
+              <div class="main-list-digit-right__item">2</div>
+              <div class="main-list-digit-right__item">3</div>
+              <div class="main-list-digit-right__item">4</div>
+              <div class="main-list-digit-right__item">5</div>
+            </div><!-- /.main-list-digit-right -->
+            <div class="main-list-article-right">
+              <div class="main-list-article-right__item">
+                <p>Ставите задачу, какой товар неоходимо Вам продать и кому именно если уже есть клиент.</p>
+              </div>
+              <div class="main-list-article-right__item">
+                <p>Вы высталяете счет нам, а мы выставлям счет конечному покупателю.</p>
+              </div>
+              <div class="main-list-article-right__item">
+                <p>Покупатель оплачивает стоимость товара нам, а мы соответственно оплачиваем товара Вам.</p>
+              </div>
+              <div class="main-list-article-right__item">
+                <p>Мы отгружаем товар и занимаемся всеми необходимыми процессами по оформлению и сопровождению груза до конечной точки.</p>
+              </div>
+              <div class="main-list-article-right__item">
+                <p>Внимание! Если в дальнейшем Ваш покупатель обратится к нам, мы перенаправим его на Вас. Мы заинтересованы в плодотворных постоянных отношениях с Вами.</p>
+              </div>
+            </div><!-- /.main-list-article-right -->
+          </div><!-- /.main-content__b-right -->
+        </div><!-- /.main-content -->
+      </div><!-- /.inner -->
+    </div><!-- /.main -->
+  </div><!-- /.layout -->
+  <div class="footer">
+    <div class="inner_footer"></div><!-- /.inner_footer -->
+  </div><!-- /.footer -->
+</body>
+</html>

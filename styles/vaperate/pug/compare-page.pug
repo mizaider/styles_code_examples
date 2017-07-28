@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+
+  h1 Heading
+
+  .row.compare-page
+    .col.s12
+      .swiper-container
+        .swiper-wrapper
+          - n = 0;
+          while n < 6
+            .swiper-slide.cat-items-list
+              .card
+                .card-image
+                  a(href='#!')
+                    img(src=img)
+                .card-content
+                  a(href='#!')
+                    span.card-title= 'Card Title ' + ++n
+                  p I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                  .card-prop
+                    dl
+                      dt Key
+                      dd Value
+                    dl
+                      dt Key
+                      dd Value
+                  .card-price 1000 &#8381;
+                    // for dollar &#36;
+                .card-action
+                  a(href='#!' class='waves-effect waves-light btn') Button
+        .swiper-button-prev
+        .swiper-button-next
+        .swiper-scrollbar

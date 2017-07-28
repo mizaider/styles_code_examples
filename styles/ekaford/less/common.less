@@ -1,0 +1,268 @@
+///////////
+/// TODO //
+///////////
+///
+/// Внести в ресет `input` и т. п. Посмотреть как это будет.
+/// `button` уже умеет в ресет, проверить.
+
+
+
+//
+// Common
+// --------------------------------------------------
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  // appearance: none; // отключено наследование стилей браузера, осторожней!
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  // -webkit-appearance: inherit; // отключено наследование стилей браузера, осторожней!
+  // -moz-appearance: inherit; // отключено наследование стилей браузера, осторожней!
+}
+
+body {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+li {
+  display: block;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// проверить
+sup {
+  position: relative;
+  top: -.5em;
+  vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+figure {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:focus {
+    outline-color: inherit;
+    outline-style: dotted;
+    outline-width: thin;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+
+// проверить
+// button {
+//  border: 0;
+//  margin: 0;
+//  padding: 0;
+//  text-align: inherit;
+//  text-transform: inherit;
+//  font: inherit;
+//  -webkit-font-smoothing: inherit;
+//  letter-spacing: inherit;
+//  background: none;
+//  cursor: pointer;
+//  overflow: visible;
+// }
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+  .clearfix();
+}
+
+
+
+//
+// Typography
+// --------------------------------------------------
+
+.typography {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 56px 0 28px;
+    font-weight: 900;
+    line-height: 1.2;
+    clear: both;
+  }
+
+  h1 {
+    font-size: 33px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 19px;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+
+  p+ul {
+    margin: 0 0 30px;
+  }
+
+  a {
+
+    .mixin_a-trs(@prop1: border-bottom; @prop2: color; @tf: ease-in-out; @dur: .1s;) {
+      transition: @prop1 @tf @dur, @prop2 @tf @dur;
+    }
+
+    color: lighten(@brand-dark-blue, 20%);
+    border-bottom: 1px solid lighten(@brand-dark-blue, 40%);
+    .mixin_a-trs(@dur: .3s);
+
+    &:hover {
+      color: @brand-dark-blue;
+      border-bottom: 2px solid @brand-dark-blue;
+      .mixin_a-trs;
+    }
+
+    &:active {
+      color: red;
+      border-bottom-color: #e69898;
+      .mixin_a-trs;
+
+      &:hover {
+        color: lighten(red, 20%);
+        border-bottom-color: lighten(red, 10%);
+        .mixin_a-trs;
+      }
+    }
+
+    &:visited {
+      color: indigo;
+      border-bottom-color: #a285B7;
+      .mixin_a-trs;
+
+      &:hover {
+        color: lighten(indigo, 20%);
+        border-bottom-color: lighten(indigo, 10%);
+        .mixin_a-trs;
+      }
+    }
+  }
+
+  ul,
+  ol {
+    margin: 16px 0;
+    padding-left: 40px;
+  }
+
+  li {
+    display: list-item;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 6px 28px 28px 0;
+  }
+
+  .alignright {
+    float: right;
+    margin: 6px 0 28px 28px;
+  }
+
+  .aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto 28px;
+  }
+}

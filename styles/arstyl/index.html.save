@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1080">
+	<title>3D-панели</title>
+	<link rel="stylesheet" href="css-min/style-min.css">
+	<link rel="stylesheet" href="css-min/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="css-min/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css-min/slick-theme.css"/>
+</head>
+<body>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- Всплывающее окно "Доставка и оплата" -->
+	<div id="shipping-dialog" class="shipping zoom-anim-dialog mfp-hide">
+		<h2 class="shipping__caption">Доставка и оплата</h2>
+		<p class="shipping__content">
+			<b>Стоимость доставки рассчитывается для каждого заказа индивидуально.</b><br>
+			Доставка по г. Екатеринбург может быть осуществлена бесплатно только при заказе от 15000 рулей.<br>
+			Доставка транспортными компаниями ТК ПЭК и Деловые Линии возможна только при 100% оплате по факту поступления денег на р/сч.<br>
+			Доставка до терминалов транспортных компаний в г. Екатеринбург осуществляется бесплатно.<br>
+			Доставка до квартиры. Перед оплатой убедитесь в отсутствии внешних дефектов, механических повреждений. и комплектности товара. После оплаты покупки, сотрудник, осуществляющий доставку, обязан выдать кассовый чек. При наличии претензий к внешнему виду и комплектности товара Вы можете отказаться от товара при его доставке. После его оплаты претензии по внешнему виду и комплектации не принимаются.<br>
+			<br>
+			<br>
+			<b>Возможны следующие способы оплаты:</b><br>
+			<br>
+			<b>Наличный расчет.</b> Оплата производится наличными курьеру при доставке заказа, а также при получении заказа в пункте выдачи.<br>
+			<b>Безналичный расчет.</b> Доступен как для юридических, так и для физических лиц. При оформлении заказа необходимо указать реквизиты вашей организации, либо ФИО полностью, для выставления счета на оплату по электронной почте.<br>
+			<b>Пластиковая карта.</b> В пункте выдачи к оплате принимаются пластиковые карты <b>Visa</b> и <b>MasterCard</b>. При получении заказа вы сможете совершить оплату через мобильный терминал.<br>
+			<b>Я.Деньги.</b> После успешной оплаты с вами свяжется менеджер для обсуждения даты доставки заказа. Владелец идентифицированного кошелька может потратить до 250 000 рублей за один раз, анонимный пользователь — до 15 000 рублей.<br>
+			<b>Перевод на карту Сбербанка.</b> Оплата производится переводом на карту Сбербанка. При получении товара вы также получаете кассовый чек.<br>
+		</p>
+	</div>
+	<!-- /Всплывающее окно "Доставка и оплата" -->
+
+	<!-- Всплывающее окно "Оформить заказ" -->
+	<div id="order-dialog" class="order zoom-anim-dialog mfp-hide">
+		<h2 class="order__caption">Оформить заказ</h2>
+		<div id="form-messages"></div>
+		<form action="mailer.php" id="ajax-contact" class="order-form">
+			<input type="text" name="name" placeholder="Имя" required id="name" class="order-form__field">
+			<input type="tel" name="tel" placeholder="Телефон" required id="tel" class="order-form__field">
+			<input type="email" name="e-mail" placeholder="E-mail" id="e-mail" class="order-form__field">
+			<textarea name="message" placeholder="Сообщение" id="message" class="order-form__textarea"></textarea>
+			<fieldset class="order-form__fieldset">
+				<legend>Выберите товар</legend>
+				<table class="order-form-table">
+					<tbody>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-1" class="order-form__label">Stripe</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-1" value="0" step="1" min="0" id="type-qty-1" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-2" class="order-form__label">Square</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-2" value="0" step="1" min="0" id="type-qty-2" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-3" class="order-form__label">Bump</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-3" value="0" step="1" min="0" id="type-qty-3" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-4" class="order-form__label">Cube</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-4" value="0" step="1" min="0" id="type-qty-4" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-5" class="order-form__label">Wave</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-5" value="0" step="1" min="0" id="type-qty-5" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-6" class="order-form__label">Icon</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-6" value="0" step="1" min="0" id="type-qty-6" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-7" class="order-form__label">Liquid</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-7" value="0" step="1" min="0" id="type-qty-7" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-8" class="order-form__label">Domino</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-8" value="0" step="1" min="0" id="type-qty-8" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+						<tr class="order-form-table__row">
+							<td class="order-form-table__cell"><label for="type-qty-9" class="order-form__label">Клей</label></td>
+							<td class="order-form-table__cell"><input type="number" name="type-qty-9" value="0" step="1" min="0" id="type-qty-9" class="order-form__field order-form__field-qty"><span class="order-form__field-qty-count">шт.</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
+			<button type="submit" class="order-form__btn">Отправить</button>
+		</form>
+	</div>
+	<!-- /Всплывающее окно "Оформить заказ" -->
+
+	<div id="home" class="layout">
+		<div class="header">
+			<div class="inner">
+				<div class="header__b-left">
+					<div class="header-menu">
+						<ul class="header-menu__list">
+							<li class="header-menu__item"><a class="header-menu__link" href="#home">Домой</a></li>
+							<li class="header-menu__item"><a class="header-menu__link" href="#gallery">Галерея</a></li>
+							<li class="header-menu__item"><a class="header-menu__link" href="#features">Характеристики</a></li>
+							<li class="header-menu__item"><a class="header-menu__link" href="#types">Виды</a></li>
+							<li class="header-menu__item"><a class="header-menu__link popup-with-move-anim" href="#shipping-dialog">Доставка и оплата</a></li>
+							<li class="header-menu__item"><a class="header-menu__link" href="#contacts">Контакты</a></li>
+						</ul><!-- /.header-menu__list -->
+					</div><!-- /.header-menu -->
+				</div><!-- /.header__b-left -->
+				<div class="header__b-right">
+					<div class="header-soc-ico">
+						<div class="header-soc-ico__vk"><a href="https://vk.com/secretroomsalon" target="blank_" class="header-soc-ico__link"></a></div>
+						<div class="header-soc-ico__fb"><a href="https://www.facebook.com/groups/378579055571144/" target="blank_" class="header-soc-ico__link"></a></div>
+						<div class="header-soc-ico__inst"><a href="https://www.instagram.com/secret_room_salon/" target="blank_" class="header-soc-ico__link"></a></div>
+					</div><!-- /.header-soc-ico -->
+					<div class="header-order-btn">
+						<a class="header-order-btn__link popup-with-move-anim" href="#order-dialog">Оформить заказ</a>
+					</div><!-- /.header-order-btn -->
+				</div><!-- /.header__b-right -->
+			</div><!-- /.inner -->
+		</div><!-- /.header -->
+		<div class="slider">
+			<div style="background: url('img/slider-1.jpg') center no-repeat;"></div>
+			<div style="background: url('img/slider-2.jpg') center no-repeat;"></div>
+			<div style="background: url('img/slider-3.jpg') center no-repeat;"></div>
+			<div style="background: url('img/slider-4.jpg') center no-repeat;"></div>
+		</div><!-- /.slider -->
+		<div class="inner">
+			<div class="s-title">
+				<h2 class="s-title__caption">Стили</h2>
+				<hr class="s-title__separator">
+				<div class="s-title__desc">
+					Просмотрите наши три стиля,<br> вдохновитесь и создайте свой собственный интерьер,<br> тени и оттенки…
+				</div><!-- /.s-title__desc -->
+			</div><!-- /.s-title -->
+			<div class="s-style">
+				<div class="s-style-view s-style-view_hide">
+					<img src="img/style_pure.jpg" alt="">
+					<p class="s-style-view__desc">
+						<b>ЧИСТОТА //</b> Играйте со структурой 3D-панелей. Сочетание чистого белого и глубокого серого цветов сделают ваш интерьер простым и в тоже время изысканным.
+					</p><!-- /.s-style-view__desc -->
+				</div><!-- /.s-style-view -->
+				<div class="s-style-view s-style-view_hide">
+					<img src="img/style_fun.jpg" alt="">
+					<p class="s-style-view__desc">
+						<b>ЗАДОР //</b> Люминесцентные цвета и оттенки в сочетании со смешанными цветами, ослепительным блеском сделают графические 3D-панели уникальными и поднимут стиль вашего дома на совершенно новый уровень.
+					</p><!-- /.s-style-view__desc -->
+				</div><!-- /.s-style-view -->
+				<div class="s-style-view s-style-view_hide">
+					<img src="img/style_natural.jpg" alt="">
+					<p class="s-style-view__desc">
+						<b>НАТУРАЛЬНОСТЬ //</b> Естественные природные оттенки дерева, земли и неба создадут ощущение, что вы прикасаетесь к самой природе, древним породам. Мягкие и теплые оттенки создадут уютную и теплую атмосферу в доме.
+					</p><!-- /.s-style-view__desc -->
+				</div><!-- /.s-style-view -->
+			</div><!-- /.s-style -->
+		</div><!-- /.inner -->
+		<div class="s-video">
+			<div class="inner inner__for-video">
+				<div class="s-video-overlay">
+					<div class="s-title">
+						<h2 class="s-title__caption s-title__caption_for-video">Видео 3D-панелей</h2>
+						<hr class="s-title__separator s-title__separator_for-video">
+						<div class="s-title__desc s-title__desc_for-video">
+							Посмотрите, что возможно сделать с помощью 3D-панелей!
+						</div><!-- /.s-title__desc -->
+					</div><!-- /.s-title -->
+					<a href="http://www.youtube.com/watch?v=sLqrmLTV0T0" class="s-video-overlay__video-btn popup-youtube"></a>
+				</div><!-- /.s-video-overlay -->
+			</div><!-- /.inner -->
+			<div class="s-video-wrap-video-background">
+				<div class="s-video-video-background">
+					<div class="s-video-video-background__overlay"></div>
+					<video width="100%" height="100%" autoplay loop muted poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+						<source src="/videos/styles/styles.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+						<source src="/videos/styles/styles.ogg" type='video/ogg; codecs="theora, vorbis"'>
+					</video>
+				</div><!-- /.s-video-video-background -->
+			</div><!-- /.s-video-wrap-video-background -->
+		</div><!-- /.s-video -->
+		<div class="inner">
+			<div class="s-title">
+				<h2 id="gallery" class="s-title__caption">Галерея</h2>
+				<hr class="s-title__separator">
+				<div class="s-title__desc">
+					Найдите вдохновение
+				</div><!-- /.s-title__desc -->
+			</div><!-- /.s-title -->
+			<div class="s-gallery">
+				<a href="img/gallery/stripe_01_b.jpg" class="s-gallery__link">
+					<img src="img/gallery/stripe_01_s.jpg" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/stripe_02_b.jpg" class="s-gallery__link">
+					<img src="img/gallery/stripe_02_s.jpg" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/square_02_b.jpg" class="s-gallery__link">
+					<img src="img/gallery/square_02_s.jpg" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/square_01_b.jpg" class="s-gallery__link">
+					<img src="img/gallery/square_01_s.jpg" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/bump_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/bump_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/cube_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/cube_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/cube_02_b.png" class="s-gallery__link">
+					<img src="img/gallery/cube_02_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/cube_03_b.png" class="s-gallery__link">
+					<img src="img/gallery/cube_03_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/liquid_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/liquid_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/liquid_02_b.png" class="s-gallery__link">
+					<img src="img/gallery/liquid_02_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/wave_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/wave_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/wave_02_b.png" class="s-gallery__link">
+					<img src="img/gallery/wave_02_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/domino_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/domino_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/domino_02_b.png" class="s-gallery__link">
+					<img src="img/gallery/domino_02_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/icon_01_b.png" class="s-gallery__link">
+					<img src="img/gallery/icon_01_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+				<a href="img/gallery/icon_02_b.png" class="s-gallery__link">
+					<img src="img/gallery/icon_02_s.png" alt="" class="s-gallery__image s-gallery__image_hide">
+				</a>
+			</div><!-- /.s-gallery -->
+			<div class="s-title">
+				<h2 id="features" class="s-title__caption">Характеристики</h2>
+				<hr class="s-title__separator">
+				<div class="s-title__desc">
+					Огромный диапазон структур и оттенков создает простор для фантазии и поднимает данный вид декоративных панелей на совершенно новый уровень. Новое поколение декоративного покрытия для стен вдохновит даже самого искушенного строителя, привнесет в интерьер дома уют, аккуратность и рельефный рисунок, точно передающий фактуру натурального дерева или камня.
+				</div><!-- /.s-title__desc -->
+			</div><!-- /.s-title -->
+			<div class="s-features">
+				<div class="s-features-item s-features-item_hide">
+					<div class="s-features-item__ico s-features-item__ico_madeby"></div>
+					<div class="s-features-item__caption">Изготовлено в Бельгии</div>
+					<div class="s-features-item__desc">Беспрекословное качество для вашего самого смелого дизайнерского решения.</div>
+				</div><!-- /.s-features__item -->
+				<div class="s-features-item s-features-item_hide">
+					<div class="s-features-item__ico s-features-item__ico_size"></div>
+					<div class="s-features-item__caption">Малогабаритные и легковесные</div>
+					<div class="s-features-item__desc">Панели легко транспортировать и устанавливать.</div>
+				</div><!-- /.s-features__item -->
+				<div class="s-features-item s-features-item_hide">
+					<div class="s-features-item__ico s-features-item__ico_acrylic"></div>
+					<div class="s-features-item__caption">Неполированный белый акрил</div>
+					<div class="s-features-item__desc">Основной белый цвет стен обеспечит максимальную адгезию для вашего авторского финального штриха.</div>
+				</div><!-- /.s-features__item -->
+				<div class="s-features-item s-features-item_hide">
+					<div class="s-features-item__ico s-features-item__ico_erase"></div>
+					<div class="s-features-item__caption">Обработанные края 3D-панелей</div>
+					<div class="s-features-item__desc">Для максимально аккуратной и идеальной отделки.</div>
+				</div><!-- /.s-features__item -->
+				<div class="s-features-item s-features-item_hide">
+					<div class="s-features-item__ico s-features-item__ico_glue"></div>
+					<div class="s-features-item__caption">Супер-клей</div>
+					<div class="s-features-item__desc">Клей Adefix Plus 310ml <br>400 рублей тюбик <br>Максимально прочное и стойкое клейкое вещество позволит надежно соединить панели.</div>
+				</div><!-- /.s-features__item -->
+			</div><!-- /.s-features -->
+		</div><!-- /.inner -->
+		<div class="s-video">
+			<div class="inner inner__for-video inner__for-video_long-caption">
+				<div class="s-video-overlay s-video-overlay_long-caption">
+					<div class="s-title">
+						<h2 class="s-title__caption s-title__caption_for-video">Видео установки 3D-панелей</h2>
+						<hr class="s-title__separator s-title__separator_for-video">
+						<div class="s-title__desc s-title__desc_for-video">
+							Пусть <b>эксперт</b> покажет вам, как это делается!
+						</div><!-- /.s-title__desc -->
+					</div><!-- /.s-title -->
+					<a href="http://www.youtube.com/watch?v=Bk2p5LkmRMk" class="s-video-overlay__video-btn popup-youtube"></a>
+				</div><!-- /.s-video-overlay -->
+			</div><!-- /.inner -->
+			<div class="s-video-wrap-video-background">
+				<div class="s-video-video-background">
+					<div class="s-video-video-background__overlay"></div>
+					<video width="100%" height="100%" autoplay loop muted poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+						<source src="/videos/installation/installation.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+						<source src="/videos/installation/installation.ogg" type='video/ogg; codecs="theora, vorbis"'>
+					</video>
+				</div><!-- /.s-video__video-background -->
+			</div><!-- /.s-video-wrap-video-background -->
+		</div><!-- /.s-video -->
+		<div class="inner">
+			<div class="s-title">
+				<h2 id="types" class="s-title__caption">Виды</h2>
+				<hr class="s-title__separator">
+				<div class="s-title__desc">
+					Откройте для себя весь диапазон 3D стеновых панелей
+				</div><!-- /.s-title__desc -->
+			</div><!-- /.s-title -->
+			<div class="s-types">
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/stripe.jpg" alt="" class="s-types-item-image__top">
+						<img src="/img/types/stripe2.jpg" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Stripe</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">3 325 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/square.jpg" alt="" class="s-types-item-image__top">
+						<img src="/img/types/square2.jpg" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Square</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">2 698 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/bump.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/bump2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Bump</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">3 325 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/cube.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/cube2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Cube</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">2 617 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/wave.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/wave2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Wave</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">2 698 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/icon.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/icon2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Icon</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">3 770 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/liquid.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/liquid2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Liquid</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">2 698 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+				<div class="s-types-item s-types-item_hide">
+					<div class="s-types-item-image">
+						<img src="/img/types/domino.png" alt="" class="s-types-item-image__top">
+						<img src="/img/types/domino2.png" alt="" class="s-types-item-image__bottom">
+					</div>
+					<div class="s-types-item__caption">Domino</div>
+					<hr class="s-types-item__separator">
+					<div class="s-types-item__desc">3 451 р.</div>
+					<div class="s-types-item__desc"><a href="/cad/cad.zip">Скачать CAD</a></div>
+				</div><!-- /.s-types-item -->
+			</div><!-- /.s-types -->
+			<div class="s-title">
+				<h2 id="contacts" class="s-title__caption">Контакты</h2>
+				<hr class="s-title__separator">
+			</div><!-- /.s-title -->
+			<div class="s-contacts">
+				<div class="s-contacts__b-left">
+					<div class="s-contacts-phone">
+						<div class="s-contacts-phone__img"><img src="/img/footer_phone.png" alt="" /></div>
+						<div class="s-contacts-phone__desc"><a href="tel:+79122362534" class="s-contacts-phone__link">+7 912 236-25-34</a></div>
+					</div><!-- /.s-contacts-phone -->
+					<div class="s-contacts-email">
+						<div class="s-contacts-email__img"><img src="/img/footer_email.png" alt="" /></div>
+						<div class="s-contacts-email__desc"><a href="mailto:info@tai-kom.ru" target="blank_" class="s-contacts-email__link">info@tai-kom.ru</a></div>
+					</div><!-- /.s-contacts-email -->
+					<div class="s-contacts-adress">
+						<div class="s-contacts-adress__img"><img src="/img/footer_adress.png" alt="" /></div>
+						<div class="s-contacts-adress__desc">Салон «Тайная Комната»<br><br> г. Екатеринбург,<br> ул. Московская, д. 77</div>
+					</div><!-- /.s-contacts-adress -->
+				</div><!-- /.s-contacts__b-left -->
+				<div class="s-contacts__b-right">
+					<div class="s-contacts-map">
+						<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=WuWIanV_34l7CFn38-pffThnNpBfYz3m&width=600&height=400&lang=ru_RU&sourceType=constructor"></script>
+					</div><!-- /.s-contacts-map -->
+				</div><!-- /.s-contacts__b-right -->
+			</div><!-- /.s-contacts -->
+		</div><!-- /.inner -->
+	</div><!-- /.layout -->
+	<div class="footer">
+		<div class="inner">
+			<div class="footer__b-left">
+				<div class="footer-copyright">
+					Все права на торговые марки, знаки, дизайн, и изображения защищены и принадлежат их правообладателю компании 
+					NMC sa, Джерт-Ноэль – B-4731, г. Айнаттен (NMC sa - Gert-Noël-Str. – B-4731 Eynatten)
+				</div>
+			</div><!-- /.footer__b-left -->
+			<div class="footer__b-right">
+				<div class="footer-dev-desc">Сайт<br> разработан</div>
+				<a href="http://gltrend.ru/" target="blank_" class="footer-dev"></a>
+			</div><!-- /.footer__b-right -->
+		</div><!-- /.inner -->
+	</div><!-- /.footer -->
+	<script src="//yastatic.net/jquery/2.1.4/jquery.min.js"></script>
+	<script src="/js/main.js"></script>
+
+	<!-- Modernizr -->
+	<script src="/js/modernizr-custom.js"></script>
+
+	<!-- Sticky -->
+	<script src="/js/jquery.sticky-kit.min.js"></script>
+
+	<!-- Magnific Popup -->
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+
+	<!-- Mailer -->
+	<script src="/js/mail.js"></script>
+
+	<!-- Slick slider -->
+	<script src="/js/slick.min.js"></script>
+</body>
+</html>

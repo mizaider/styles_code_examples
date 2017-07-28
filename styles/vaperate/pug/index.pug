@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+
+  h1 Heading
+
+  .row.cat-list
+    - n = 0;
+    while n < 6
+      .col.s12.m6.l3
+        .card.hoverable
+          .card-image
+            a(href='#!')
+              img(src=img)
+          .card-content
+            a(href='#!')
+              span.card-title= 'Card Title ' + ++n
+
+  include pagination.pug

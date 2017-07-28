@@ -1,0 +1,65 @@
+extends layout.pug
+
+block content
+
+  h1 Heading
+
+  .row.product-page
+    .col.s12.l5.product-image
+      img.materialboxed(src=img)
+    .col.s12.l6.push-l1.product-desc
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium reprehenderit unde deleniti, autem totam facilis ullam. Molestias culpa, sapiente ducimus nemo corrupti quia harum. In deserunt, labore delectus voluptate quaerat!
+    .col.s12.l6.push-l1.product-prop
+      - for (var i = 0; i < 4; i++) {
+          dl
+            dt Key
+            dd Value
+      - }
+    .col.s12.l6.push-l1.right-align.product-price 1 000 &#8381;
+      // for dollar &#36;
+    .col.s12.l6.push-l1.right-align.product-buttons
+      a(href='#!' class='waves-effect waves-light btn') Button
+      a(href='#!' class='waves-effect waves-light btn') Button
+    .col.s12.product-review
+      h4 Heading
+      form.col.s12
+        .row
+          .input-field.col.s4
+            input(id='first_name' type='text' class='validate')
+            label(for='first_name') First Name
+          .input-field.col.s4
+            input(id='last_name' type='text' class='validate')
+            label(for='last_name') Last Name
+          .input-field.col.s4
+            input(id='email' type='email' class='validate')
+            label(for='email') Email
+          .input-field.col.s12
+            textarea(id='textarea' class='materialize-textarea')
+            label(for='textarea1') Textarea
+          .input-field.col.s1
+            a(href='#!' class='waves-effect waves-light btn') Button
+    .col.s12.product-upsells
+      h3 Heading
+      .row.cat-items-list
+        - n = 0;
+        while n < 4
+          .col.s12.m6.l3
+            .card.hoverable
+              .card-image
+                a(href='#!')
+                  img(src=img)
+              .card-content
+                a(href='#!')
+                  span.card-title= 'Card Title ' + ++n
+                p I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                .card-prop
+                  dl
+                    dt Key
+                    dd Value
+                  dl
+                    dt Key
+                    dd Value
+                .card-price 1000 &#8381;
+                  // for dollar &#36;
+              .card-action
+                a(href='#!' class='waves-effect waves-light btn') Button

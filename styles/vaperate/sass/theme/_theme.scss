@@ -1,0 +1,224 @@
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 558px;
+  }
+  .row .col.l3 {
+    width: 285px;
+  }
+}
+
+@media only screen and (min-width: 675px) {
+  .container {
+    width: 635px;
+  }
+  .row .col.l3 {
+    width: 328px;
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .container {
+    width: 730px;
+  }
+  .row .col.l3 {
+    width: 250px;
+  }
+}
+
+@media only screen and (min-width: 870px) {
+  .container {
+    width: 830px;
+  }
+  .row .col.l3 {
+    width: 280px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 960px;
+  }
+  .row .col.l3 {
+    width: 325px;
+  }
+}
+
+@media only screen and (min-width: 1320px) {
+  .container {
+    width: 1280px;
+  }
+  .row .col.l3 {
+    width: 325px;
+  }
+}
+
+
+
+.cat-items-list {
+  .card {
+    max-height: 750px;
+
+    .card-content {
+      padding-bottom: 15px;
+
+      .card-prop {
+        padding-bottom: 13px;
+
+        dl {
+          display: flex;
+          justify-content: space-between;
+          margin: 0;
+
+          &:first-of-type {
+            margin-top: 15px;
+          }
+
+          dt,
+          dd {
+            color: color("grey", "darken-1");
+          }
+
+          dt {
+            position: relative;
+            width: 100%;
+            margin-right: 2px;
+            overflow: hidden;
+
+            &:after {
+              content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ';
+              position: absolute;
+              margin-left: 5px;
+              color: color("grey", "lighten-1");
+            }
+          }
+
+          dd {
+            margin-left: 0;
+          }
+        }
+      }
+
+      .card-price {
+        font-size: 26px;
+        font-weight: 500;
+      }
+    }
+
+    .card-action {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      .btn {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+
+
+// product page
+
+.product-page {
+  .product-image {
+    img {
+      width: 100%;
+      padding: 0 0.75rem 0.75rem;
+    }
+  }
+
+  .product-desc {
+    font-size: 18px;
+    font-weight: 300;
+
+    p {
+      &:first-of-type {
+        margin: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .product-prop {
+    dl {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+
+      &:first-of-type {
+        margin-top: 15px;
+      }
+
+      dt,
+      dd {
+        color: color("grey", "darken-1");
+      }
+
+      dt {
+        position: relative;
+        width: 100%;
+        margin-right: 2px;
+        overflow: hidden;
+
+        &:after {
+          content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ';
+          position: absolute;
+          margin-left: 5px;
+          color: color("grey", "lighten-1");
+        }
+      }
+
+      dd {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .product-price {
+    margin: 20px 0;
+    font-size: 36px;
+    font-weight: 500;
+  }
+
+  .product-buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+      margin-right: 5px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .product-review {
+    margin-bottom: 100px;
+  }
+}
+
+
+@media only screen and (min-width : 993px) {
+  .product-page {
+    .product-image {
+      height: 383px;
+    }
+  }
+}
+
+
+
+// swiper
+
+.swiper-container {
+  width: 100%;
+  max-height: 750px;
+}

@@ -1,0 +1,14 @@
+.row
+  ul.pagination.center-align
+    li.disabled
+      a(href='#!')
+        i.material-icons chevron_left
+    li.active
+      a(href='#!') 1
+    - n = 1;
+    while n < 5
+      li.waves-effect
+        a(href='#!')= ++n
+    li.waves-effect
+      a(href='#!')
+        i.material-icons chevron_right
